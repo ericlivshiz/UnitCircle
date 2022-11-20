@@ -1,0 +1,14 @@
+FEATURES:
+A grey line at 0 degrees on the unit circle
+
+Cursor is being tracked--
+  one line will show to the end of the circle
+  another will go to your mouse
+
+Radial line can either 1.) follow the mouse (unlocked)
+or 2.) not follow the mouse (locked)
+
+When a user does 1 thing (either changes degree on unit circle, or changes text box)
+the program needs to fill out the rest
+
+Locked and unlocked mechanism:
