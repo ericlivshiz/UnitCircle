@@ -12,3 +12,45 @@ When a user does 1 thing (either changes degree on unit circle, or changes text 
 the program needs to fill out the rest
 
 Locked and unlocked mechanism:
+  generally:
+    bool isLocked;
+    if isLocked is true, the users mouse will not be followed
+    if isLocked is false, the users mouse will be tracked for input
+  
+  conditions:
+    if a user clicks, isLocked = opposite of what it was before the click
+    if the user clicks on a textbox/button, isLocked = true;
+    
+  light psuedo-code:
+
+  class Lock{
+    bool isLocked() {
+      return false;
+    }    
+    
+    void flipLock() {
+      if (isLocked)
+        isLocked = false;  
+      if (!isLocked)
+        isLocked = true;
+    }
+    
+  }
+    
+    idk where this stuff should go nothing's built lol, it's floating in space for now
+    
+    // tracks mouse while unlocked
+    if (!Lock.islocked) 
+      trackMouse();
+    
+    // switches from lock-unlock on click
+    if (event.type == sf::Event::MouseButtonPressed)
+    {
+    if (event.mouseButton.button == sf::Mouse::Right)
+      Lock.flipLock();
+    }
+    
+    if one of the buttons pressed
+      isLocked = true;
+    
+    
