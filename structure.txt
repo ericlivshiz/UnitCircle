@@ -1,0 +1,81 @@
+Architexture:
+
+FILES:
+One for every class
+
+CLASSES:
+Lock
+Triangle Fan Generator
+Unit Circle
+Bottom Text
+Game (the core)
+Math Stuff
+Mouse
+Degree
+Radians
+CosSin
+
+
+METHODS NEEDED:
+  Lock:
+    bool isLocked();
+    void flipLock();
+    
+  Triangle Fan Generator:
+    ////
+    ////
+  
+  Unit Circle:
+    // make circle with sfml
+    renderer::draw(circle)
+    // needs to be able to change based off what is input on Bottom text
+    
+  Bottom Text:
+    ////
+    ////
+    
+  Game:
+    // intializes everything needed
+    // calls everything needed
+    
+  Math Stuff:
+    // Should contain methods for all math stuff that we need.
+    
+    // When we need math for something, we should pass values
+    // MathStuff.blah(in here, in here), and it should spit
+    // out an answer.
+    
+    // This way we don't have random math written in some method
+    
+  Mouse:
+    float TrackMouse();
+    // this will return an x and y position
+    
+    // needs more
+    
+    (will be used like this):
+    while (!Lock.isLocked)
+      Mouse.TrackMouse()
+      
+      
+  WHAT'S CONNECTED:
+    Lock->Bottom Text
+    // needs to know if one of the bottom text buttons are pressed
+    
+    Mouse->Lock
+    // Mouse will need to know if Lock.isLocked or not
+    
+    Triangle Fan Generator->Unit Circle, Math Stuff, Renderer
+    // all you
+    
+    Unit Circle->Renderer, Bottom Text
+    // circle needs to be drawn
+    // needs to be able to change based on bottom text
+    
+    Bottom Text->Degree, Radians, CosSin
+    // needs to be able to fill in the fields
+    
+    (IN PROGRESS)
+    
+    
+  
