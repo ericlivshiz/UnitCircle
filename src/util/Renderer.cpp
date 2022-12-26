@@ -14,3 +14,9 @@ void Renderer::postRender()
 {
 	window.display();
 }
+
+void Renderer::render(UnitCircle& unitCircle)
+{
+	window.draw(unitCircle.getCircle());
+	window.draw(unitCircle.getRadialLine());
+}
