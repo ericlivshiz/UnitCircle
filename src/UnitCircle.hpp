@@ -28,7 +28,7 @@ private:
     // circle part
     sf::CircleShape circleShape;
     sf::Vector2f position;
-    const int radius{ 225 };
+    float radius{ 225 };
 
     // radial lines
     RadialLine radialLine{ position, radius };

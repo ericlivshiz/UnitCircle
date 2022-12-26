@@ -26,6 +26,12 @@ void UnitCircle::update(const sf::Vector2f& displacement)
     radialLine.setAngle(radialLineAngle);
 
     radialLine.update();
+
+    radius--;
+    position.x--;
+    position.y--;
+
+    designCircle();
 }
 
 void UnitCircle::designCircle()
