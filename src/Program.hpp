@@ -31,4 +31,5 @@ private:
 	UnitCircle unitCircle;
 
 	bool isRunning{ false };
+
 };

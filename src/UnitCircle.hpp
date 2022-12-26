@@ -1,45 +1,37 @@
 #pragma once
 
+#include <SFML/Graphics/CircleShape.hpp>
+
 #include "RadialLine.hpp"
-
-#include "SFML/Graphics.hpp"
-
-namespace sf {
-    class CircleShape;
-    class Color;
-}
 
 class UnitCircle
 {
-
 // Public methods
 public:
-    UnitCircle();
+    UnitCircle(const sf::Vector2f& startingPos);
    
-    void createCircle(const sf::CircleShape& circle);
-    sf::CircleShape getCircle() const { return storingCircle; }
-    sf::Vector2f getPosition() const { return circlePosition; }
-    sf::RectangleShape getRadialLine();
-    float getRadius() const { return circleRad; }
+    void update(const sf::Vector2f& displacement);
+
+    // getters
+    float getRadius() const                     { return radius;      }
+
+    const sf::CircleShape& getCircle() const    { return circleShape; }
+    const sf::Vector2f& getPosition() const     { return position;    }
+    const RadialLine& getRadialLine() const     { return radialLine;  }
 
 // Private methods
 private:
-    void storeCircle(const sf::CircleShape& circle);
     void designCircle();
-    
-    
 
 // Private variables
 private:
-    sf::CircleShape storingCircle;
+    // circle part
+    sf::CircleShape circleShape;
+    sf::Vector2f position;
+    const int radius{ 225 };
 
-    const sf::Color BLACK_COLOR{ sf::Color::Black };
-    const sf::Color WHITE_COLOR{ sf::Color::White };
+    // radial lines
+    RadialLine radialLine{ position, radius };
 
-    sf::Vector2f circlePosition;
-    static const int circleRad = 225;
-    const float outlineThickness = 5.0f;
-
-    RadialLine radialLine;
 
 };

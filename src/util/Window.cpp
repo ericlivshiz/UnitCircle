@@ -4,9 +4,9 @@
 
 #include <SFML/Window/Event.hpp>
 
-Window::Window(unsigned width, unsigned height, const std::string& name, int style)
+Window::Window(const std::string& name, int style)
 {
-	window.create(sf::VideoMode(width, height), name, style);
+	window.create(sf::VideoMode(STARTING_WIDTH, STARTING_HEIGHT), name, style);
 	
 	static constexpr unsigned FPS_LIMIT{ 60 };
 	

@@ -14,7 +14,7 @@ class Window
 {
 	// public methods
 public:
-	Window(unsigned width, unsigned height, const std::string& name, int style);
+	Window(const std::string& name, int style);
 
 	void update();
 
@@ -24,6 +24,10 @@ public:
 	unsigned getWidth() const					{ return window.getSize().x; }
 	unsigned getHeight() const					{ return window.getSize().y; }
 	const sf::RenderWindow& getWindow() const	{ return window;			 }
+
+public:
+	static constexpr unsigned STARTING_WIDTH{ 1000 };
+	static constexpr unsigned STARTING_HEIGHT{ 800 };
 
 	// private methods
 private:

@@ -4,23 +4,29 @@
 
 #include <iostream>
 
-RadialLine::RadialLine()
+RadialLine::RadialLine(const sf::Vector2f& anchor, const float& length)
+	:
+	anchorPoint{ anchor },
+	length{ length }
 {
 	std::cout << "Inside Radial Line constructor" << std::endl;
-	zeroDegLine();
+	
+	designLine();
+	update();
 }
 
-void RadialLine::zeroDegLine() {
-	sf::RectangleShape stationaryLine(sf::Vector2f(210.0f, lineHeight));
-
-	stationaryLine.setPosition(520.0f, 260.0f);
-	stationaryLine.setFillColor(BLACK_COLOR);
-	storeRadialLine(stationaryLine);
-}
-
-void RadialLine::storeRadialLine(const sf::RectangleShape& stationaryLine)
+void RadialLine::update()
 {
-	this->storingRadialLine = stationaryLine;
+	line.setRotation(angle);
+	line.setPosition(anchorPoint);
+	line.setSize({ length, 1 });
 }
 
+void RadialLine::designLine() 
+{
+	static const sf::Color LINE_COLOR{ sf::Color::Black };
 
+	line.setFillColor(LINE_COLOR);
+	line.setOutlineColor(LINE_COLOR);
+	line.setOutlineThickness(lineThickness);
+}

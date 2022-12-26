@@ -1,9 +1,6 @@
 #pragma once
 
-// Oops, this is going to cause an error for you, but couldn't figure out how
-// to include files outside of util folder any other way
-#include "D:\Users\karse\source\repos\UnitCircle1.3\src\UnitCircle.hpp"
-
+class UnitCircle;
 class Window;
 
 class Renderer
@@ -17,9 +14,8 @@ public:
 
 	void preRender();
 	void postRender();
-	void render(UnitCircle& unitCircle);
 
-	//void render(const Thing& t);
+	void render(const UnitCircle& unitCircle);
 
 	// private members
 private:

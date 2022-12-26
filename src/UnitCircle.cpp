@@ -1,45 +1,50 @@
 #include "UnitCircle.hpp"
 
-#include "util/Window.hpp"
+#include <SFML/Graphics.hpp>
 
 #include "RadialLine.hpp"
-
-#include <SFML/Graphics.hpp>
+#include "util/Window.hpp"
 
 #include <iostream>
 
-UnitCircle::UnitCircle()
+UnitCircle::UnitCircle(const sf::Vector2f& startingPos)
+    :
+    position{ startingPos }
 {
     std::cout << "Unit Circle Constructor" << std::endl;
-    sf::CircleShape circleShape;
-    createCircle(circleShape);
-    
-}
 
-void UnitCircle::createCircle(const sf::CircleShape& circleShape)
-{
-    
-    storeCircle(circleShape);
     designCircle();
-
 }
 
-void UnitCircle::storeCircle(const sf::CircleShape& circleShape)
+void UnitCircle::update(const sf::Vector2f& displacement)
 {
-    this->storingCircle = circleShape;
+    //todo: complete
+
+    static int radialLineAngle{ 0 };
+    radialLineAngle++;
+
+    radialLine.setAngle(radialLineAngle);
+
+    radialLine.update();
 }
 
 void UnitCircle::designCircle()
 {
-    circlePosition = sf::Vector2f(275.0f, 50.0f);
-    this->storingCircle.setFillColor(WHITE_COLOR);
-    this->storingCircle.setRadius(circleRad);
-    this->storingCircle.setPosition(circlePosition);
-    this->storingCircle.setOutlineColor(BLACK_COLOR);
-    this->storingCircle.setOutlineThickness(outlineThickness);
-}
+    //position = sf::Vector2f(275.0f, 50.0f);
+    
+    circleShape.setRadius(radius);
 
-sf::RectangleShape UnitCircle::getRadialLine()
-{
-    return radialLine.containsRadialLine();
+    const sf::Vector2f centerPosition{ sf::Vector2f{ 
+        position.x - radius, 
+        position.y - radius 
+    } };
+    circleShape.setPosition(centerPosition);
+    
+    static const sf::Color FILL_COLOR{ sf::Color::White };
+    static const sf::Color OUTLINE_COLOR{ sf::Color::Black };
+    static const float outlineThickness{ 5.0f };
+
+    circleShape.setFillColor(FILL_COLOR);
+    circleShape.setOutlineColor(OUTLINE_COLOR);
+    circleShape.setOutlineThickness(outlineThickness);
 }

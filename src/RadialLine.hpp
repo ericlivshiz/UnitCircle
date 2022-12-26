@@ -1,20 +1,31 @@
 #pragma once
 
-#include <SFML/Graphics.hpp>
+#include <SFML/Graphics/RectangleShape.hpp>
 
-class RadialLine {
+class RadialLine 
+{
 public:
-	RadialLine();
-	sf::RectangleShape containsRadialLine() const { return storingRadialLine; };
+	RadialLine(const sf::Vector2f& anchor, const float& length);
+
+	void update();
+
+	// setters/getters
+	void setAngle(float a)					  { angle = a;	 }
+
+	const sf::RectangleShape& getLine() const { return line; }
 
 private:
-	void zeroDegLine();
-	void storeRadialLine(const sf::RectangleShape& radialLine);
+	void designLine();
 
 private:
-	const float lineHeight = 5.0f;
-	sf::RectangleShape storingRadialLine;
+	sf::RectangleShape line;
+	
+	float angle{ 0 };
 
-	const sf::Color BLACK_COLOR{ sf::Color::Black };
+	const float lineThickness{ 5.0f };
+
+	// dependancies on unit circle
+	const sf::Vector2f& anchorPoint;
+	const float& length;
 
 };

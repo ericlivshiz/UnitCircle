@@ -6,9 +6,9 @@
 
 Program::Program()
 	: 
-	window{ 1000, 800, "Unit Circle", sf::Style::Default }
-{
-}
+	window{ "Unit Circle", sf::Style::Default },
+	unitCircle{ { Window::STARTING_WIDTH / 2, Window::STARTING_HEIGHT / 2 } }
+{}
 
 void Program::start()
 {
@@ -39,6 +39,9 @@ void Program::update()
 		stop();
 
 	// update calls
+
+	// todo: pass actual arguments
+	unitCircle.update({0,0});
 }
 
 void Program::display()
@@ -47,10 +50,7 @@ void Program::display()
 
 	renderer.render(unitCircle);
 
-	// render calls
 	renderer.postRender();
-
-	
 }
 
 void Program::stop()
