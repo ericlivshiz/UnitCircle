@@ -1,9 +1,6 @@
 #include "UnitCircle.hpp"
 
-#include <SFML/Graphics.hpp>
-
 #include "RadialLine.hpp"
-#include "util/Window.hpp"
 
 #include <iostream>
 
@@ -23,7 +20,7 @@ void UnitCircle::update(const sf::Vector2f& displacement)
     static int radialLineAngle{ 0 };
     radialLineAngle++;
 
-    radialLine.setAngle(radialLineAngle);
+    radialLine.setAngle((float)radialLineAngle);
 
     radialLine.update();
 

@@ -1,7 +1,5 @@
 #include "RadialLine.hpp"
 
-#include <SFML/Graphics.hpp>
-
 #include <iostream>
 
 RadialLine::RadialLine(const sf::Vector2f& anchor, const float& length)
