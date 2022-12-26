@@ -2,6 +2,7 @@
 
 #include "util/Renderer.hpp"
 #include "util/Window.hpp"
+#include "UnitCircle.hpp"
 
 class Program
 {
@@ -27,6 +28,7 @@ private:
 
 	Window window;
 	Renderer renderer{ window };
+	UnitCircle unitCircle;
 
 	bool isRunning{ false };
 };

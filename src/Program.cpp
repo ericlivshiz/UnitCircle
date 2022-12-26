@@ -6,7 +6,7 @@
 
 Program::Program()
 	: 
-	window{ 800, 600, "Unit Circle", sf::Style::Default }
+	window{ 1000, 800, "Unit Circle", sf::Style::Default }
 {
 }
 
@@ -28,7 +28,7 @@ void Program::programLoop()
 
 void Program::handleInput()
 {
-	std::cout << "Handle Input\n";
+	/*std::cout << "Handle Input\n";*/
 }
 
 void Program::update()
@@ -45,9 +45,12 @@ void Program::display()
 {
 	renderer.preRender();
 
-	// render calls
+	renderer.render(unitCircle);
 
+	// render calls
 	renderer.postRender();
+
+	
 }
 
 void Program::stop()
