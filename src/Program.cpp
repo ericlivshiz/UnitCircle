@@ -7,7 +7,7 @@
 Program::Program()
 	: 
 	window{ "Unit Circle", sf::Style::Default },
-	unitCircle{ { Window::STARTING_WIDTH / 2, Window::STARTING_HEIGHT / 2 } },
+	unitCircle{ { Window::STARTING_WIDTH / 2, Window::STARTING_HEIGHT / 2.5 } },
 	userInterface{}
 {}
 
