@@ -14,24 +14,19 @@ UnitCircle::UnitCircle(const sf::Vector2f& startingPos)
     std::cout << "Unit Circle Constructor" << std::endl;
 
     designCircle();
+
 }
 
 void UnitCircle::update(const sf::Vector2f& displacement)
 {
     //todo: complete
 
-    static int radialLineAngle{ 0 };
+    static float radialLineAngle{ 0 };
     radialLineAngle++;
 
     radialLine.setAngle(radialLineAngle);
 
     radialLine.update();
-
-    radius--;
-    position.x--;
-    position.y--;
-
-    designCircle();
 }
 
 void UnitCircle::designCircle()

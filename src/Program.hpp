@@ -3,6 +3,8 @@
 #include "util/Renderer.hpp"
 #include "util/Window.hpp"
 #include "UnitCircle.hpp"
+#include "UserInterface.hpp"
+
 
 class Program
 {
@@ -29,6 +31,7 @@ private:
 	Window window;
 	Renderer renderer{ window };
 	UnitCircle unitCircle;
+	UserInterface userInterface;
 
 	bool isRunning{ false };
 
