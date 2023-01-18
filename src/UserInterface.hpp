@@ -23,4 +23,5 @@ private:
 	DegreeButton degreeButton{degreePos};
 	RadianButton radianButton{radianPos};
 	CoordinateButton coordinateButton{ coordinatePos };
+
 };

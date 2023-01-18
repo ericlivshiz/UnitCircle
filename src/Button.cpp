@@ -2,7 +2,6 @@
 
 #include <iostream>
 
-
 Button::Button(sf::Vector2f position)
 	:
 	position{ position }
@@ -29,7 +28,20 @@ void Button::designBox()
 	box.setOutlineThickness(BOX_THICKNESS);
 }
 
+void Button::setText(std::string buttonType, sf::Vector2f position)
+{
+	if (!buttonFont.loadFromFile("Castellar.ttf"))
+		std::cout << "Couldn't load the font" << std::endl;
+
+	buttonText.setPosition(position);
+	buttonText.setString(buttonType);
+	buttonText.setCharacterSize(40);
+	buttonText.setFont(buttonFont);
+	buttonText.setFillColor(sf::Color::Black);
+}
+
 void Button::onClick()
 {
-	
+
 }
+

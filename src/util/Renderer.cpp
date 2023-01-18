@@ -30,7 +30,12 @@ void Renderer::render(const UnitCircle& unitCircle, const UserInterface& userInt
 	const sf::RectangleShape& line{ rl.getLine() };
 
 	window.draw(line);
-	
+
+	const RadialLine& srl{ unitCircle.getStationaryRadialLine() };
+	const sf::RectangleShape& stationaryLine{ rl.getStatLine() };
+
+	window.draw(stationaryLine);
+
 	// TODO:
 	// I want to create a getAllButtons() method that would be an array/vector of buttons
 	// which would allow us to only make one function call and draw method
@@ -39,13 +44,25 @@ void Renderer::render(const UnitCircle& unitCircle, const UserInterface& userInt
 
 	window.draw(degButton);
 
+	const sf::Text& dt{ db.getText() };
+
+	window.draw(dt);
+
 	const Button& rb{ userInterface.getRadianButton() };
 	const sf::RectangleShape& radButton{ rb.getBox() };
 
 	window.draw(radButton);
 
+	const sf::Text& rt{ rb.getText() };
+
+	window.draw(rt);
+
 	const Button& cb{ userInterface.getCoordinateButton() };
 	const sf::RectangleShape& coordButton{ cb.getBox() };
 
 	window.draw(coordButton);
+
+	const sf::Text& ct{ cb.getText() };
+
+	window.draw(ct);
 }

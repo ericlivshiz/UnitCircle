@@ -22,11 +22,17 @@ void UnitCircle::update(const sf::Vector2f& displacement)
     //todo: complete
 
     static float radialLineAngle{ 0 };
-    radialLineAngle++;
+    radialLineAngle--;
 
     radialLine.setAngle(radialLineAngle);
 
     radialLine.update();
+
+    static const int zeroDegAngle{ 0 };
+
+    stationaryRadialLine.setAngle(zeroDegAngle);
+
+    stationaryRadialLine.update();
 }
 
 void UnitCircle::designCircle()
