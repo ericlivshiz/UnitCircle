@@ -4,7 +4,7 @@
 #include "util/Window.hpp"
 #include "UnitCircle.hpp"
 #include "UserInterface.hpp"
-
+#include "Mouse.hpp"
 
 class Program
 {
@@ -32,6 +32,9 @@ private:
 	Renderer renderer{ window };
 	UnitCircle unitCircle;
 	UserInterface userInterface;
+
+	const sf::RenderWindow& windowRef = window.getWindow();
+	Mouse mouse{windowRef};
 
 	bool isRunning{ false };
 

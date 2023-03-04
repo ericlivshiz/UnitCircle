@@ -5,10 +5,11 @@
 #include <SFML/Window/WindowStyle.hpp>
 
 Program::Program()
-	: 
+	:
 	window{ "Unit Circle", sf::Style::Default },
 	unitCircle{ { Window::STARTING_WIDTH / 2, Window::STARTING_HEIGHT / 2.5 } },
-	userInterface{}
+	userInterface{},
+	mouse{ windowRef }
 {}
 
 void Program::start()
@@ -35,7 +36,6 @@ void Program::handleInput()
 void Program::update()
 {
 	window.update();
-
 	if (!window.isOpen())
 		stop();
 
