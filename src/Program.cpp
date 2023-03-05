@@ -43,6 +43,7 @@ void Program::update()
 
 	// todo: pass actual arguments
 	unitCircle.update({0,0});
+	mouse.updateLockState();
 }
 
 void Program::display()

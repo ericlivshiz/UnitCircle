@@ -13,7 +13,10 @@ public:
 	const DegreeButton& getDegreeButton() const { return degreeButton; }
 	const RadianButton& getRadianButton() const { return radianButton; }
 	const CoordinateButton& getCoordinateButton() const { return coordinateButton; }
+	static const sf::FloatRect& getUISpace()	{ return UIspace; }
 
+public:
+	static inline const sf::FloatRect UIspace{ 0.0f, 630.0f, 1000.0f, 200.0f };
 
 private:
 	sf::Vector2f degreePos{ 400.0f, 675.0f };
