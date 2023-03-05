@@ -1,25 +1,35 @@
 #include "Mouse.hpp"
-#include "debugMacro.hpp"
 #include <iostream>
 
 Mouse::Mouse(const sf::RenderWindow& windowRef)
 	:
 	window(windowRef)
 {
-	pixelPos = sf::Mouse::getPosition(window);
+	updateMousePos();
+}
 
-	DEBUG("The X Coordinate is: " << getMousePos().x);
-	DEBUG("The Y Coordinate is: " << getMousePos().y);
+bool Mouse::isMouseOverArea()
+{
+	return UserInterface::getUISpace().contains(getMousePos().x, getMousePos().y);
 }
 
 void Mouse::updateLockState()
 {
-	while (window.isOpen())
-	{
-		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
-			isLock = true;
+	if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+		isLock = true;
 
-		if (sf::Mouse::isButtonPressed(sf::Mouse::Right))
-			isLock = false;
-	}
+	if (sf::Mouse::isButtonPressed(sf::Mouse::Right))
+		isLock = false;
+
+	updateMousePos();
+
+	if (isMouseOverArea())
+		isLock = false;
 }
+
+// UpdateLockState() - debug code
+/*std::cout << "Is locked: " << isLock << std::endl;
+	std::cout << "X: " << getMousePos().x << std::endl;
+	std::cout << "Y: " << getMousePos().y << std::endl;
+	if (UserInterface::getUISpace().contains(getMousePos().x, getMousePos().y))
+		std::cout << "INSIDE RECT" << std::endl;*/

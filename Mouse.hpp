@@ -2,6 +2,7 @@
 
 #include <SFML/Graphics.hpp>
 #include "util/Window.hpp"
+#include "UserInterface.hpp"
 
 class Mouse {
 public:
@@ -9,6 +10,7 @@ public:
 
 public:
 	const sf::Vector2i& getMousePos() const { return pixelPos; }
+	bool isMouseOverArea();
 	void updateLockState();
 
 	bool getLockStatus() const  { return isLock; }
@@ -19,4 +21,6 @@ private:
 	sf::Vector2i pixelPos;
 	const sf::RenderWindow& window;
 	bool isLock = false;
+
+	void updateMousePos() { pixelPos = sf::Mouse::getPosition(window); }
 };
