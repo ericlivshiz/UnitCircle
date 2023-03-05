@@ -10,7 +10,7 @@ public:
 
 public:
 	const sf::Vector2i& getMousePos() const { return pixelPos; }
-	bool isMouseOverArea();
+	bool isMouseOverUI();
 	void updateLockState();
 
 	bool getLockStatus() const  { return isLock; }
