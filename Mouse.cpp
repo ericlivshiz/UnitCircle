@@ -8,7 +8,7 @@ Mouse::Mouse(const sf::RenderWindow& windowRef)
 	updateMousePos();
 }
 
-bool Mouse::isMouseOverArea()
+bool Mouse::isMouseOverUI()
 {
 	return UserInterface::getUISpace().contains(getMousePos().x, getMousePos().y);
 }
@@ -23,7 +23,7 @@ void Mouse::updateLockState()
 
 	updateMousePos();
 
-	if (isMouseOverArea())
+	if (isMouseOverUI())
 		isLock = false;
 }
 
