@@ -3,6 +3,10 @@
 #include "util/Renderer.hpp"
 #include "util/Window.hpp"
 #include "UnitCircle.hpp"
+#include "UserInterface.hpp"
+#include "Math.hpp"
+#include "Mouse.hpp"
+
 
 class Program
 {
@@ -29,6 +33,11 @@ private:
 	Window window;
 	Renderer renderer{ window };
 	UnitCircle unitCircle;
+	UserInterface userInterface;
+	Math math;
+
+	const sf::RenderWindow& windowRef = window.getWindow();
+	Mouse mouse{windowRef};
 
 	bool isRunning{ false };
 

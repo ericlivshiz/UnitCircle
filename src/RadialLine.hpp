@@ -14,11 +14,14 @@ public:
 
 	const sf::RectangleShape& getLine() const { return line; }
 
+	const sf::RectangleShape& getStatLine() const { return stationaryLineTest; }
 private:
 	void designLine();
 
 private:
 	sf::RectangleShape line;
+
+	sf::RectangleShape stationaryLineTest;
 	
 	float angle{ 0 };
 

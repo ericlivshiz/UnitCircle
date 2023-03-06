@@ -18,6 +18,10 @@ void RadialLine::update()
 	line.setRotation(angle);
 	line.setPosition(anchorPoint);
 	line.setSize({ length, 1 });
+
+	stationaryLineTest.setRotation(0);
+	stationaryLineTest.setPosition(anchorPoint);
+	stationaryLineTest.setSize({ length, 1 });
 }
 
 void RadialLine::designLine() 
@@ -27,4 +31,8 @@ void RadialLine::designLine()
 	line.setFillColor(LINE_COLOR);
 	line.setOutlineColor(LINE_COLOR);
 	line.setOutlineThickness(lineThickness);
+
+	stationaryLineTest.setFillColor(LINE_COLOR);
+	stationaryLineTest.setOutlineColor(LINE_COLOR);
+	stationaryLineTest.setOutlineThickness(lineThickness);
 }

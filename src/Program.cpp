@@ -5,9 +5,12 @@
 #include <SFML/Window/WindowStyle.hpp>
 
 Program::Program()
-	: 
+	:
 	window{ "Unit Circle", sf::Style::Default },
-	unitCircle{ { Window::STARTING_WIDTH / 2, Window::STARTING_HEIGHT / 2 } }
+	unitCircle{ { Window::STARTING_WIDTH / 2, Window::STARTING_HEIGHT / 2.5 } },
+	userInterface{},
+	mouse{ windowRef },
+	math{}
 {}
 
 void Program::start()
@@ -34,7 +37,6 @@ void Program::handleInput()
 void Program::update()
 {
 	window.update();
-
 	if (!window.isOpen())
 		stop();
 
@@ -42,13 +44,15 @@ void Program::update()
 
 	// todo: pass actual arguments
 	unitCircle.update({0,0});
+	mouse.updateLockState();
+	math.radialToMouse();
 }
 
 void Program::display()
 {
 	renderer.preRender();
 
-	renderer.render(unitCircle);
+	renderer.render(unitCircle, userInterface);
 
 	renderer.postRender();
 }

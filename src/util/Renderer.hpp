@@ -1,6 +1,7 @@
 #pragma once
 
 class UnitCircle;
+class UserInterface;
 class Window;
 
 class Renderer
@@ -15,7 +16,7 @@ public:
 	void preRender();
 	void postRender();
 
-	void render(const UnitCircle& unitCircle);
+	void render(const UnitCircle& unitCircle, const UserInterface& userInterface);
 
 	// private members
 private:

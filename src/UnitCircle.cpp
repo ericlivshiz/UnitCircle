@@ -1,6 +1,10 @@
 #include "UnitCircle.hpp"
 
+#include <SFML/Graphics.hpp>
+
 #include "RadialLine.hpp"
+#include "util/Window.hpp"
+#include "Math.hpp"
 
 #include <iostream>
 
@@ -11,24 +15,25 @@ UnitCircle::UnitCircle(const sf::Vector2f& startingPos)
     std::cout << "Unit Circle Constructor" << std::endl;
 
     designCircle();
+
 }
 
 void UnitCircle::update(const sf::Vector2f& displacement)
 {
     //todo: complete
 
-    static int radialLineAngle{ 0 };
-    radialLineAngle++;
+    /*static float radialLineAngle{ 0 };
+    radialLineAngle--;*/
 
-    radialLine.setAngle((float)radialLineAngle);
+    radialLine.setAngle(Math::radialToMouse()*-1);
 
     radialLine.update();
 
-    radius--;
-    position.x--;
-    position.y--;
+    static const int zeroDegAngle{ 0 };
 
-    designCircle();
+    stationaryRadialLine.setAngle(zeroDegAngle);
+
+    stationaryRadialLine.update();
 }
 
 void UnitCircle::designCircle()
