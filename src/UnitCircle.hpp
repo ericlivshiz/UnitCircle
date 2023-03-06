@@ -19,6 +19,7 @@ public:
     const RadialLine& getStationaryRadialLine() const { return stationaryRadialLine; }
 
 public:
+    // todo: delete and replace all instances of getPosition()
     static inline const sf::Vector2i centerPoint{498, 318};
 
 // Private methods

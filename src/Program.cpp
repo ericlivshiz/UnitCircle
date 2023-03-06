@@ -40,10 +40,18 @@ void Program::update()
 	if (!window.isOpen())
 		stop();
 
-	// update calls
 
-	// todo: pass actual arguments
-	unitCircle.update({0,0});
+	const sf::Vector2i mousePosi = sf::Mouse::getPosition();
+	const sf::Vector2f mousePosf = sf::Vector2f(mousePosi.x, mousePosi.y);
+
+	const sf::Vector2i windowPosi = window.getWindow().getPosition();
+	const sf::Vector2f windowPosf = sf::Vector2f(windowPosi.x, windowPosi.y);
+
+	// displacement vector from center of circle to mouse
+	const sf::Vector2f displacement = mousePosf - windowPosf - unitCircle.getPosition();
+
+	// update calls
+	unitCircle.update(displacement);
 	mouse.updateLockState();
 	math.radialToMouse();
 }

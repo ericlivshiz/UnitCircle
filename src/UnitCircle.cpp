@@ -25,7 +25,11 @@ void UnitCircle::update(const sf::Vector2f& displacement)
     /*static float radialLineAngle{ 0 };
     radialLineAngle--;*/
 
-    radialLine.setAngle(Math::radialToMouse()*-1);
+    //radialLine.setAngle(Math::radialToMouse()*-1);
+
+    const double angle{ Math::angleOf(displacement) };
+
+    radialLine.setAngle(Math::toDegree(angle));
 
     radialLine.update();
 

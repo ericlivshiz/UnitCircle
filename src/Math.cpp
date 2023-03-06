@@ -15,7 +15,7 @@ const double Math::radialToMouse()
 	// calculate triangle sides
 	const int vertSide = y2 - y;
 	const int horizSide = x2 - x;
-	const double hypot = std::hypot(horizSide, vertSide);
+	const double hypot = std::hypotf(horizSide, vertSide);
 
 	// get Sin of angle and inverse it
 	const double sinOfAngle = sin(vertSide / hypot);	
@@ -45,6 +45,24 @@ const double Math::radialToMouse()
 	}
 
 	return goToAngle;
+}
+
+double Math::angleOf(const sf::Vector2f& v)
+{
+	// radians
+	const float angle = atan2f(v.y, v.x);
+	
+	return angle;
+}
+
+double Math::toDegree(double rad)
+{
+	return 180 * (rad / (PI));
+}
+
+double Math::toRad(double deg)
+{
+	return deg / PI;
 }
 
 // DEBUGGING STATEMENTS
