@@ -9,7 +9,7 @@ public:
 	Mouse(const sf::RenderWindow& windowRef);
 
 public:
-	const sf::Vector2i& getMousePos() const { return pixelPos; }
+	static inline const sf::Vector2i& getMousePos() { return pixelPos; }
 	bool isMouseOverUI();
 	void updateLockState();
 
@@ -18,7 +18,7 @@ public:
 	void setUnlock()			{ isLock = false; }
 
 private:
-	sf::Vector2i pixelPos;
+	static inline sf::Vector2i pixelPos;
 	const sf::RenderWindow& window;
 	bool isLock = false;
 

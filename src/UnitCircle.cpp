@@ -4,6 +4,7 @@
 
 #include "RadialLine.hpp"
 #include "util/Window.hpp"
+#include "Math.hpp"
 
 #include <iostream>
 
@@ -21,10 +22,10 @@ void UnitCircle::update(const sf::Vector2f& displacement)
 {
     //todo: complete
 
-    static float radialLineAngle{ 0 };
-    radialLineAngle--;
+    /*static float radialLineAngle{ 0 };
+    radialLineAngle--;*/
 
-    radialLine.setAngle(radialLineAngle);
+    radialLine.setAngle(Math::radialToMouse()*-1);
 
     radialLine.update();
 

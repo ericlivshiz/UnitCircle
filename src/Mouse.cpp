@@ -28,7 +28,7 @@ void Mouse::updateLockState()
 }
 
 // UpdateLockState() - debug code
-/*std::cout << "Is locked: " << isLock << std::endl;
+/*	std::cout << "Is locked: " << isLock << std::endl;
 	std::cout << "X: " << getMousePos().x << std::endl;
 	std::cout << "Y: " << getMousePos().y << std::endl;
 	if (UserInterface::getUISpace().contains(getMousePos().x, getMousePos().y))

@@ -18,17 +18,20 @@ public:
     const RadialLine& getRadialLine() const     { return radialLine;  }
     const RadialLine& getStationaryRadialLine() const { return stationaryRadialLine; }
 
+public:
+    static inline const sf::Vector2i centerPoint{498, 318};
+
 // Private methods
 private:
     void designCircle();
-
+    
 // Private variables
 private:
     // circle part
     sf::CircleShape circleShape;
     sf::Vector2f position;
     const float radius{ 225 };
-
+    
     // radial lines
     RadialLine radialLine{ position, radius };
     RadialLine stationaryRadialLine{ position, radius };
