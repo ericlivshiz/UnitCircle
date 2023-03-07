@@ -4,7 +4,7 @@
 
 #include "RadialLine.hpp"
 #include "util/Window.hpp"
-#include "Math.hpp"
+#include "util/Math.hpp"
 
 #include <iostream>
 

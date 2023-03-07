@@ -4,11 +4,11 @@
 
 #include "../UnitCircle.hpp"
 
-#include "../UserInterface.hpp"
+#include "../ui/UserInterface.hpp"
 
 #include <SFML/Graphics/Color.hpp>
 
-#include "../button.hpp"
+#include "../ui/Button.hpp"
 
 
 void Renderer::preRender()

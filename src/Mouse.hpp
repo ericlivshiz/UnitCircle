@@ -1,12 +1,13 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
-#include "util/Window.hpp"
-#include "UserInterface.hpp"
+
+
+class Window;
 
 class Mouse {
 public:
-	Mouse(const sf::RenderWindow& windowRef);
+	Mouse(const Window& window);
 
 public:
 	static inline const sf::Vector2i& getMousePos() { return pixelPos; }

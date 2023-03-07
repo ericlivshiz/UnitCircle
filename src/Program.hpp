@@ -3,8 +3,8 @@
 #include "util/Renderer.hpp"
 #include "util/Window.hpp"
 #include "UnitCircle.hpp"
-#include "UserInterface.hpp"
-#include "Math.hpp"
+#include "ui/UserInterface.hpp"
+#include "util/Math.hpp"
 #include "Mouse.hpp"
 
 
@@ -27,6 +27,8 @@ private:
 	
 	void stop();
 
+	const sf::Vector2f getCircleToMouse() const;
+
 	// private members
 private:
 
@@ -34,10 +36,8 @@ private:
 	Renderer renderer{ window };
 	UnitCircle unitCircle;
 	UserInterface userInterface;
-	Math math;
 
-	const sf::RenderWindow& windowRef = window.getWindow();
-	Mouse mouse{windowRef};
+	Mouse mouse{ window };
 
 	bool isRunning{ false };
 

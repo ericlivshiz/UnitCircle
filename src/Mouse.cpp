@@ -1,9 +1,13 @@
 #include "Mouse.hpp"
 #include <iostream>
 
-Mouse::Mouse(const sf::RenderWindow& windowRef)
+#include "util/Window.hpp"
+
+#include "ui/UserInterface.hpp"
+
+Mouse::Mouse(const Window& window)
 	:
-	window(windowRef)
+	window(window.getWindow())
 {
 	updateMousePos();
 }
