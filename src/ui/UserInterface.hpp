@@ -8,8 +8,13 @@
 
 #include <SFML/Graphics.hpp>
 
+#include <vector>
+
 class UserInterface {
 public:
+
+	UserInterface();
+
 	const DegreeButton& getDegreeButton() const { return degreeButton; }
 	const RadianButton& getRadianButton() const { return radianButton; }
 	const CoordinateButton& getCoordinateButton() const { return coordinateButton; }
@@ -27,5 +32,7 @@ private:
 	DegreeButton degreeButton{degreePos};
 	RadianButton radianButton{radianPos};
 	CoordinateButton coordinateButton{ coordinatePos };
+
+	std::vector<Button*> buttons;
 
 };

@@ -1,24 +1,23 @@
 #include "UserInterface.hpp"
 
+UserInterface::UserInterface()
+{
+	buttons.push_back(&degreeButton);
+	buttons.push_back(&radianButton);
+	buttons.push_back(&coordinateButton);
+}
+
 const void UserInterface::checkForInput(Mouse& mouse)
 {
 	sf::Vector2i mousePos = Mouse::getMousePos();
 
-	if (degreeButton.isMouseInButton(mousePos, degreePos) && sf::Mouse::isButtonPressed(sf::Mouse::Left))
+	if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 	{
-		// which button
-		std::cout << "In degree button" << std::endl;
+		for (Button* button : buttons)
+		{
+			if (button->isMouseInButton(mousePos, button->getBox().getPosition()))
+				button->onClick();
+		}
 	}
 
-	if (radianButton.isMouseInButton(mousePos, radianPos) && sf::Mouse::isButtonPressed(sf::Mouse::Left))
-	{
-		// which button
-		std::cout << "In radian button" << std::endl;
-	}
-
-	if (coordinateButton.isMouseInButton(mousePos, coordinatePos) && sf::Mouse::isButtonPressed(sf::Mouse::Left))
-	{
-		// which button
-		std::cout << "In coordinate button" << std::endl;
-	}
 }
