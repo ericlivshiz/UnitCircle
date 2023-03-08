@@ -15,17 +15,17 @@ public:
 	const sf::Text& getText() const				{ return buttonText; }
 
 	virtual void onClick() = 0;	// abstract method
-	static bool isButtonClicked(Mouse& mouse);
+	bool isMouseInButton(sf::Vector2i mousePos, sf::Vector2f butPosition);
 
 private:
 	void designBox();
 	void setBox();
 
-	static inline sf::Vector2f buttonPos;
-	void setButtonPos(sf::Vector2f position) { buttonPos = position; }
+	
 
 private:
 	sf::RectangleShape box;
+	sf::Vector2f buttonPos;
 
 	sf::Text buttonText;
 	sf::Font buttonFont;

@@ -5,7 +5,7 @@
 Button::Button(sf::Vector2f position)
 {
 	std::cout << "Inside Button Constructor" << std::endl;
-	setButtonPos(position);
+	buttonPos = position;
 	designBox();
 	setBox();
 	
@@ -40,12 +40,11 @@ void Button::setText(std::string buttonType, sf::Vector2f position)
 	buttonText.setFillColor(sf::Color::Black);
 }
 
-bool Button::isButtonClicked(Mouse& mouse)
+bool Button::isMouseInButton(sf::Vector2i mousePos, sf::Vector2f butPosition)
 {
-	sf::FloatRect coversButton{ buttonPos.x, buttonPos.y, DIM.x, DIM.y};
+	sf::FloatRect coversButton{ butPosition.x, butPosition.y, DIM.x, DIM.y};
 
-	if (coversButton.contains(Mouse::getMousePos().x, Mouse::getMousePos().y)
-		&& sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+	if (coversButton.contains(mousePos.x, mousePos.y)) {
 
 		return true;
 	}
